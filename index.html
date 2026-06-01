@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BOENO GRILLZ — Custom Grillz İstanbul</title>
+<meta name="description" content="BOENO GRILLZ — İstanbul merkezli el yapımı özel tasarım grillz. DM ile sipariş, kişiye özel üretim." />
+<meta property="og:title" content="BOENO GRILLZ — Custom Grillz İstanbul" />
+<meta property="og:description" content="El yapımı özel tasarım grillz. İstanbul." />
+<link rel="icon" href="images/pfp.jpg" />
+<style>
+  :root{
+    --green:#39ff7a;
+    --green-deep:#0fae4a;
+    --bg:#000;
+    --bg-2:#0a0a0a;
+    --white:#fff;
+    --muted:#a8a8a8;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--white);font-family:'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 28px;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.18em}
+  .logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--green)}
+  .logo span{color:var(--green)}
+  nav .links{display:flex;gap:26px;font-size:13px;letter-spacing:.15em;text-transform:uppercase}
+  nav .links a:hover{color:var(--green)}
+  .ig-btn{padding:9px 16px;border:1px solid var(--green);color:var(--green);border-radius:999px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;transition:.2s}
+  .ig-btn:hover{background:var(--green);color:#000}
+  @media(max-width:720px){nav .links{display:none}nav{padding:14px 18px}}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:120px 24px 60px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(800px 500px at 50% 30%, rgba(57,255,122,.18), transparent 60%),
+      radial-gradient(600px 400px at 80% 80%, rgba(57,255,122,.08), transparent 60%),
+      #000;
+  }
+  .hero h1{
+    font-size:clamp(56px,14vw,180px);
+    font-weight:900;letter-spacing:-.04em;line-height:.85;
+    background:linear-gradient(180deg,#fff 0%,#fff 55%,var(--green) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 60px rgba(57,255,122,.25);
+  }
+  .hero h1 .small{display:block;font-size:.28em;letter-spacing:.3em;color:var(--green);font-weight:700;margin-bottom:20px;-webkit-text-fill-color:var(--green)}
+  @media(max-width:520px){.hero h1 .small{letter-spacing:.18em;font-size:.32em}}
+  .hero p{margin-top:24px;color:var(--muted);max-width:540px;font-size:16px;line-height:1.6}
+  .cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{padding:14px 28px;border-radius:999px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;transition:.25s;border:1px solid transparent;cursor:pointer}
+  .btn-primary{background:var(--green);color:#000}
+  .btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 10px 40px rgba(57,255,122,.4)}
+  .btn-ghost{border-color:#fff;color:#fff}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  .scroll-tag{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.4em;color:var(--muted);text-transform:uppercase}
+
+  /* MARQUEE */
+  .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#000;padding:18px 0}
+  .marquee-track{display:flex;gap:60px;white-space:nowrap;animation:scroll 22s linear infinite;font-size:28px;font-weight:900;letter-spacing:.1em}
+  .marquee-track span{color:#fff}
+  .marquee-track span.g{color:var(--green)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* SECTIONS */
+  section{padding:100px 28px}
+  .section-title{text-align:center;margin-bottom:60px}
+  .section-title .eyebrow{color:var(--green);font-size:12px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:14px;display:block}
+  .section-title h2{font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-.03em;line-height:1}
+  .section-title h2 em{color:var(--green);font-style:normal}
+
+  /* WORK GRID */
+  .works{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:900px){.works{grid-template-columns:1fr}}
+  .work{position:relative;overflow:hidden;border-radius:18px;background:#0a0a0a;border:1px solid var(--line);aspect-ratio:1/1;cursor:pointer;transition:.4s}
+  .work:hover{border-color:var(--green);transform:translateY(-6px)}
+  .work img{width:100%;height:100%;object-fit:cover;transition:.6s}
+  .work:hover img{transform:scale(1.06)}
+  .work .info{position:absolute;inset:auto 0 0 0;padding:20px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.9));}
+  .work .info h3{font-size:18px;font-weight:800;letter-spacing:.02em}
+  .work .info p{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-top:4px}
+
+  /* REVIEWS */
+  .reviews-wrap{background:#050505;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;position:relative}
+  .reviews-track{display:flex;gap:24px;animation:slide 40s linear infinite;padding:20px 0}
+  .reviews-track:hover{animation-play-state:paused}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(calc(-340px * 10 - 240px))}}
+  .review{flex:0 0 340px;background:#0e0e0e;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .review .stars{color:var(--green);letter-spacing:3px;font-size:18px}
+  .review p{color:#ddd;font-size:14px;line-height:1.55;min-height:84px}
+  .review .who{display:flex;align-items:center;gap:12px;margin-top:6px;border-top:1px solid var(--line);padding-top:14px}
+  .review .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green),#0a4a22);display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:14px}
+  .review .who div{font-size:13px}
+  .review .who small{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+
+  /* ABOUT / CONTACT */
+  .contact{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  @media(max-width:800px){.contact{grid-template-columns:1fr}}
+  .contact-card{background:linear-gradient(180deg,#0a0a0a,#000);border:1px solid var(--line);border-radius:24px;padding:40px}
+  .contact-card h3{font-size:28px;font-weight:900;margin-bottom:8px}
+  .contact-card h3 em{color:var(--green);font-style:normal}
+  .contact-card p{color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:24px}
+  .info-row{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+  .info-row:last-child{border-bottom:1px solid var(--line)}
+  .info-row .ic{width:38px;height:38px;border-radius:10px;background:rgba(57,255,122,.12);color:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+  .info-row .txt small{color:var(--muted);font-size:11px;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .info-row .txt b{font-size:15px;font-weight:700}
+
+  .pfp-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:50px 30px;background:radial-gradient(circle at center,rgba(57,255,122,.15),transparent 70%);border:1px solid var(--line);border-radius:24px}
+  .pfp-card img{width:180px;height:180px;border-radius:50%;border:3px solid var(--green);box-shadow:0 0 60px rgba(57,255,122,.35);object-fit:cover}
+  .pfp-card h4{margin-top:22px;font-size:22px;font-weight:900;letter-spacing:.05em}
+  .pfp-card span{color:var(--green);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-top:6px}
+  .pfp-card a.btn{margin-top:22px}
+
+  /* FOOTER */
+  footer{padding:40px 28px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+  footer b{color:var(--green)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="logo"><img src="images/pfp.jpg" alt="Boeno" /> BO<span>ENO</span></a>
+  <div class="links">
+    <a href="#works">Çalışmalar</a>
+    <a href="#reviews">Yorumlar</a>
+    <a href="#contact">İletişim</a>
+  </div>
+  <a class="ig-btn" href="https://instagram.com/boeno_grillz" target="_blank">@boeno_grillz</a>
+</nav>
+
+<header id="top" class="hero">
+  <h1><span class="small">İSTANBUL · CUSTOM GRILLZ</span>BOENO<br/>GRILLZ</h1>
+  <p>El yapımı, kişiye özel tasarım grillz. Her parça, ağız ölçüne göre tek tek üretilir. Sokağın parlamasına hoş geldin.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://instagram.com/boeno_grillz" target="_blank">DM ile Sipariş Ver</a>
+    <a class="btn btn-ghost" href="#works">Çalışmaları Gör</a>
+  </div>
+  <div class="scroll-tag">↓ Scroll</div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>CUSTOM GRILLZ</span><span class="g">★</span>
+    <span>İSTANBUL</span><span class="g">★</span>
+    <span>HANDMADE</span><span class="g">★</span>
+    <span>BOENO_GRILLZ</span><span class="g">★</span>
+    <span>CUSTOM GRILLZ</span><span class="g">★</span>
+    <span>İSTANBUL</span><span class="g">★</span>
+    <span>HANDMADE</span><span class="g">★</span>
+    <span>BOENO_GRILLZ</span><span class="g">★</span>
+  </div>
+</div>
+
+<section id="works">
+  <div class="section-title">
+    <span class="eyebrow">Portfolio</span>
+    <h2>Örnek <em>Çalışmalar</em></h2>
+  </div>
+  <div class="works">
+    <div class="work">
+      <img src="images/ido.jpg" alt="2x I DO grillz set" />
+      <div class="info"><p>01 · Letter Set</p><h3>2x I DO Grillz Set</h3></div>
+    </div>
+    <div class="work">
+      <img src="images/clover-cross.jpg" alt="Clover and Cross grillz set" />
+      <div class="info"><p>02 · Icon Set</p><h3>Clover + Cross Grillz Set</h3></div>
+    </div>
+    <div class="work">
+      <img src="images/star.jpg" alt="Star grillz" />
+      <div class="info"><p>03 · Single Tooth</p><h3>Star Grillz</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-bottom:40px">
+  <div class="section-title">
+    <span class="eyebrow">★ ★ ★ ★ ★ 5.0</span>
+    <h2>Müşteri <em>Yorumları</em></h2>
+  </div>
+</section>
+<div class="reviews-wrap">
+  <div class="reviews-track" id="reviewsTrack"></div>
+</div>
+
+<section id="contact">
+  <div class="section-title">
+    <span class="eyebrow">Get in Touch</span>
+    <h2>Sipariş & <em>İletişim</em></h2>
+  </div>
+  <div class="contact">
+    <div class="contact-card">
+      <h3>Hadi <em>Konuşalım</em></h3>
+      <p>Tasarımını DM'den anlat, ölçü ve fiyat için sana dönelim. Tüm siparişler İstanbul'daki atölyede el yapımı üretilir.</p>
+      <div class="info-row">
+        <div class="ic">📍</div>
+        <div class="txt"><small>Mağaza</small><b>İstanbul, Türkiye</b></div>
+      </div>
+      <div class="info-row">
+        <div class="ic">✉</div>
+        <div class="txt"><small>Bilgi & Sipariş</small><b>Instagram DM</b></div>
+      </div>
+      <div class="info-row">
+        <div class="ic">◎</div>
+        <div class="txt"><small>Instagram</small><b>@boeno_grillz</b></div>
+      </div>
+    </div>
+    <div class="pfp-card">
+      <img src="images/pfp.jpg" alt="Boeno Grillz" />
+      <h4>BOENO GRILLZ</h4>
+      <span>Custom Grillz · İstanbul</span>
+      <a class="btn btn-primary" href="https://instagram.com/boeno_grillz" target="_blank">DM 4 Info</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> BOENO GRILLZ — Made with <b>♥</b> in İstanbul
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const reviews = [
+    {n:"Mert K.", c:"İstanbul", t:"Ölçü mükemmel oturdu, parlaklık inanılmaz. Kesinlikle tavsiye ederim 🔥"},
+    {n:"Selin A.", c:"Kadıköy", t:"Custom 'I DO' setim için teşekkürler. Tasarım birebir hayal ettiğim gibi."},
+    {n:"Emre Y.", c:"Beşiktaş", t:"Sektörde gördüğüm en temiz işçilik. Boeno gerçekten farkını ortaya koyuyor."},
+    {n:"Deniz Ö.", c:"Şişli", t:"Star grillz aldım, ışık altında resmen ışıldıyor. 10/10 ✨"},
+    {n:"Kaan T.", c:"Beyoğlu", t:"DM'den iletişim çok hızlıydı. 1 haftada teslim ettiler, kusursuz."},
+    {n:"Aslı M.", c:"Bakırköy", t:"Cross tasarımım çok özel oldu. Detaylara verdikleri önem inanılmaz."},
+    {n:"Burak D.", c:"Üsküdar", t:"Daha önce yurtdışından alıyordum, artık sadece Boeno. Kalite tartışmasız."},
+    {n:"Ece N.", c:"Levent", t:"Hediye olarak aldım, gözleri doldu 💚 paketlemeden üretime herşey 5 yıldız."},
+    {n:"Cem V.", c:"İstanbul", t:"İlk grillz deneyimim, tereddütsüz öneririm. Profesyonel ve samimi ekip."},
+    {n:"Zeynep K.", c:"Maslak", f:"Clover set ALDIM",t:"Clover setim için bayılıyorum. Boeno=quality 💯"}
+  ];
+
+  const track = document.getElementById('reviewsTrack');
+  const html = reviews.map(r=>`
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"${r.t}"</p>
+      <div class="who">
+        <div class="avatar">${r.n[0]}</div>
+        <div><b>${r.n}</b><br/><small>${r.c}</small></div>
+      </div>
+    </div>
+  `).join('');
+  track.innerHTML = html + html; // duplicate for seamless loop
+
+  // smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id = a.getAttribute('href');
+      if(id.length>1){
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+</script>
+</body>
+</html>
